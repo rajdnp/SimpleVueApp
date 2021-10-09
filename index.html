@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+
+<div class="container" id="app">
+    <div class="form-group">
+        <label for="usr">Name:</label>
+        <input type="text" v-model="searchString" class="form-control" id="usr" v-on:input="searchEmployee()">
+    </div>
+   <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th v-on:click="sortEmployee('emp_id')">Id <i class="material-icons">{{ defaultSortOrder === 1 ? "cloud" : "favorite"}}</i>
+        </th>
+        <th v-on:click="sortEmployee('emp_name')">Employee Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="item in employees" >
+        <td>{{item.emp_id}}</td>
+        <td>{{item.emp_name}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <ul class="list-group-item">
+      <li class="list-item" v-if="searchString != null" v-for="post in posts">
+          {{post.title}}
+      </li>
+  </ul>
+</div>
+<script src="index.js"></script>
+</body>
+</html>
