@@ -78,3 +78,28 @@ var app = new Vue({
         }
     },
 })
+
+
+
+
+
+
+// TS FILE
+
+sortTable(data: any, key: any) {
+    if (this.defaultSortOrder) {
+      this.defaultSortOrder = !this.defaultSortOrder;
+      return data.sort((a: any, b: any) => (a[key] > b[key]) ? 1 : -1);
+    } else {
+      this.defaultSortOrder = !this.defaultSortOrder;
+      return data.sort((a: any, b: any) => (a[key] > b[key]) ? -1 : 1);
+    }
+  }
+
+  sortEmp(key: any) {
+    let sortedData = this.sortTable(this.srfExtension, key);
+    this.srfExtension = [];
+    sortedData.forEach((ext: any) => {
+      this.srfExtension.push(ext);
+    });
+  }
