@@ -81,7 +81,8 @@ var app = new Vue({
 
 
 
-
+// TABLE HEADER
+<th (click)="sortEmp(candidate_name)">Employee Name</th
 
 
 // TS FILE
