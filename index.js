@@ -90,7 +90,7 @@ var app = new Vue({
 sortTable(data: any, key: any) {
     if (this.defaultSortOrder) {
       this.defaultSortOrder = !this.defaultSortOrder;
-      return key === "Termination_dt" ?  data.sort((a: any, b: any) => (a[this.getTime(key)] > b[this.getTime(key)]) ? 1 : -1)   : data.sort((a: any, b: any) => (a[key] > b[key]) ? 1 : -1);
+      return key === "Termination_dt" ?  data.sort((a: any, b: any) => (a[new Date(key)] > b[new Date(key)]) ? 1 : -1)   : data.sort((a: any, b: any) => (a[key] > b[key]) ? 1 : -1);
     } else {
       this.defaultSortOrder = !this.defaultSortOrder;
       return data.sort((a: any, b: any) => (a[key] > b[key]) ? -1 : 1);
